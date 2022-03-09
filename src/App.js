@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
-
+import Timer  from './components/Timer';
 function App() {
+  const [timer, setTimer] = useState(0);
+  const [endTimer, setEndTimer] = useState(10);
+  
+  const [show, setShow] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {show ? < Timer setTimer={setTimer} setEndTimer={setEndTimer} timer={timer} endTimer={endTimer} /> :  null }
+      </div>
+      <div>
+            <input type="number" placeholder='startTimer' onChange={(e)=>{setTimer(e.target.value)}} />
+            <input type="number" placeholder='endTimer' onChange={(e)=>{setEndTimer(e.target.value)}} />
+        </div>
+    <button onClick={() => {
+      show=== true ? setShow(false) : setShow(true)
+    }}>
+      {show ? 'Stop' : 'start'}
+    </button>
     </div>
   );
 }
