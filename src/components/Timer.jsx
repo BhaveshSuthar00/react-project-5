@@ -1,12 +1,11 @@
-import React  from 'react'
-import Dd from './dd'
-const Timer = ({setTimer, setEndTimer, timer, endTimer}) => {
+import Output from './Output'
+import Input  from './Input'
+const Timer = () => {
   return (
-    <>
-      
-      < Dd setTimer={setTimer} setEndTimer={setEndTimer} timer={timer} endTimer={endTimer}/>
-      
-    </>
+    <div>
+      < Output />
+      < Input />
+    </div>
   )
 }
 
